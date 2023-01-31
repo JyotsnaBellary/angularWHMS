@@ -1,102 +1,103 @@
+ <!-- //done by Jyotsna and sneha, Date: 18th jan  -->
+
 <div class="container center mt-3" >
-    <table class="table table-striped table-dark">
-      <thead>
-        <tr>
-          <th>Product code</th>
-          <th>Product Name</th>
-          <th>Product Stock</th>
-          <th>Product Length</th>
-          <th>Product Width</th>
-          <th>Product Height</th>
-          <th>Product Weight</th>
-        </tr>
-      </thead>
-      <tbody  *ngFor="let p of productList">
-        <tr>
-          <td>{{p.productCode}}</td>
-          <td>{{p.productName}}</td>
-          <td>{{p.productStock}}</td>
-          <td>{{p.productLength}}</td>
-          <td>{{p.productWidth}}</td>
-          <td>{{p.productHeight}}</td>
-          <td>{{p.productWeight}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row">
-    <div class="column left">
-      <h2 class="text-center">Adding products</h2>
-      <form class="form-group" ngNativeValidate>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Product code</th>
+        <th>Product Name</th>
+        <th>Product Stock</th>
+        <th>Product Length</th>
+        <th>Product Width</th>
+        <th>Product Height</th>
+        <th>Product Weight</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let p of productList">
+      <tr>
+        <td>{{p.productCode}}</td>
+        <td>{{p.productName}}</td>
+        <td>{{p.productStock}}</td>
+        <td>{{p.productLength}}</td>
+        <td>{{p.productWidth}}</td>
+        <td>{{p.productHeight}}</td>
+        <td>{{p.productWeight}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="column left">
+    <h2 class="text-center">Adding products</h2>
+    <form class="form-group" ngNativeValidate>
+    <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+    <div class="form-group">
+      <label for="email"><h6>Product code:</h6></label>
+      <input type="text" class="form-control" id="productCode" [(ngModel)]="productCode" placeholder="Enter Product Code"
+        name="productCode" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Product Name:</h6></label>
+      <input type="text" class="form-control" id="productName" [(ngModel)]="productName" placeholder="Enter Product Name"
+        name="productName" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Current Product Stock:</h6></label>
+      <input type="number" class="form-control" id="productStock" [(ngModel)]="productStock" placeholder="Enter Product Stock"
+        name="productStock" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Product Length:</h6></label>
+      <input type="number" class="form-control" id="productLength" [(ngModel)]="productLength" placeholder="Enter Product Length"
+        name="productLength" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Product Width:</h6></label>
+      <input type="number" class="form-control" id="productWidth" [(ngModel)]="productWidth" placeholder="Enter Product Width"
+        name="productWidth" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Product Height:</h6></label>
+      <input type="number" class="form-control" id="productHeight" [(ngModel)]="productHeight" placeholder="Enter Product Height"
+        name="productHeight" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><h6>Product Weight:</h6></label>
+      <input type="number" class="form-control" id="productWeight" [(ngModel)]="productWeight" placeholder="Enter Product Weight"
+        name="productWeight" required>
+    </div>
+    <br>
+    <button (click)="Submits()" style="background-color: #212529;" class="btn btn-success"><h5>Submit</h5></button>
+    <br>
+    </form></div>
+  <div class="column right">
+    <h2 class="text-center">Updating inventory count</h2>
+    <!-- <app-second></app-second> -->
+    <form class="form-group" ngNativeValidate>
+         
       <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
       <div class="form-group">
-        <label for="email"><h6>Product code:</h6></label>
-        <input type="text" class="form-control" id="productCode" [(ngModel)]="productCode" placeholder="Enter Product Code"
-          name="productCode" required>
+        <label for="UpdateproductCode"><h6>Product code:</h6></label>
+        <input type="text" class="form-control" id="UpdateproductCode" [(ngModel)]="UpdateproductCode" placeholder="Enter Product Code"
+          name="UpdateproductCode" required>
       </div>
       <div class="form-group">
-        <label for="email"><h6>Product Name:</h6></label>
-        <input type="text" class="form-control" id="productName" [(ngModel)]="productName" placeholder="Enter Product Name"
-          name="productName" required>
+        <label for="action"><h6>Action : Increase / Decrease</h6></label>
+        <input type="text" class="form-control" id="action" [(ngModel)]="action" placeholder="Increase / Decrease"
+          name="action" required>
       </div>
       <div class="form-group">
-        <label for="email"><h6>Current Product Stock:</h6></label>
-        <input type="number" class="form-control" id="productStock" [(ngModel)]="productStock" placeholder="Enter Product Stock"
-          name="productStock" required>
+        <label for="CountUpdate"><h6>Update by count:</h6></label>
+        <input type="number" class="form-control" id="CountUpdate" [(ngModel)]="CountUpdate" placeholder="Give count"
+          name="CountUpdate" required>
       </div>
-      <div class="form-group">
-        <label for="email"><h6>Product Length:</h6></label>
-        <input type="number" class="form-control" id="productLength" [(ngModel)]="productLength" placeholder="Enter Product Length"
-          name="productLength" required>
-      </div>
-      <div class="form-group">
-        <label for="email"><h6>Product Width:</h6></label>
-        <input type="number" class="form-control" id="productWidth" [(ngModel)]="productWidth" placeholder="Enter Product Width"
-          name="productWidth" required>
-      </div>
-      <div class="form-group">
-        <label for="email"><h6>Product Height:</h6></label>
-        <input type="number" class="form-control" id="productHeight" [(ngModel)]="productHeight" placeholder="Enter Product Height"
-          name="productHeight" required>
-      </div>
-      <div class="form-group">
-        <label for="email"><h6>Product Weight:</h6></label>
-        <input type="number" class="form-control" id="productWeight" [(ngModel)]="productWeight" placeholder="Enter Product Weight"
-          name="productWeight" required>
-      </div>
+      
       <br>
-      <button (click)="Submits()" style="background-color: #212529;" class="btn btn-success"><h5>Submit</h5></button>
+      <button (click)="UpdateCount()" style="background-color: #212529;" class="btn btn-success"><h5>Submit</h5></button>
+
       <br>
-      </form></div>
-    <div class="column right">
-      <h2 class="text-center">Updating inventory count</h2>
-      <!-- <app-second></app-second> -->
-      <form class="form-group" ngNativeValidate>
-           
-        <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
-        <div class="form-group">
-          <label for="UpdateproductCode"><h6>Product code:</h6></label>
-          <input type="text" class="form-control" id="UpdateproductCode" [(ngModel)]="UpdateproductCode" placeholder="Enter Product Code"
-            name="UpdateproductCode" required>
-        </div>
-        <div class="form-group">
-          <label for="action"><h6>Action : Increase / Decrease</h6></label>
-          <input type="text" class="form-control" id="action" [(ngModel)]="action" placeholder="Increase / Decrease"
-            name="action" required>
-        </div>
-        <div class="form-group">
-          <label for="CountUpdate"><h6>Update by count:</h6></label>
-          <input type="number" class="form-control" id="CountUpdate" [(ngModel)]="CountUpdate" placeholder="Give count"
-            name="CountUpdate" required>
-        </div>
-        
-        <br>
-        <button (click)="UpdateCount()" style="background-color: #212529;" class="btn btn-success"><h5>Submit</h5></button>
-  
-        <br>
-        <div>{{successMessage}}</div>
-        </form>
-    </div>
-  </div> 
-  
-  
+      <div>{{successMessage}}</div>
+      </form>
+  </div>
+</div> 
+
